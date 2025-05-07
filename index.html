@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gsap</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body class="bg-black">
+    <div class="px-10">
+        <h1 class="text-6xl font-semibold text-center pt-5 pb-20 text-white">Gsap Practice</h1>
+        <div id="nav"
+            class="bg-[#1f2937] px-5 flex justify-between items-center py-4 rounded-md max-w-[1120px] mx-auto shadow-sm shadow-white">
+            <p class="text-white text-3xl logo">logo</p>
+            <div class="text-white flex gap-10 text-xl" id="links">
+                <p class="links">home</p>
+                <p class="links">about</p>
+                <p class="links">faq</p>
+                <p class="links">contact</p>
+            </div>
+        </div>
+
+        <div id="box" class="w-[200px] h-[200px] bg-white mt-12 flex justify-center items-center">
+            <p class="text-xl text-black font-semibold text-center">to()</p>
+        </div>
+        <div id="box1" style="background-color: aqua;" class="w-[200px] h-[200px] flex justify-center items-center">
+            <p class="text-xl text-black font-semibold text-center">from()</p>
+        </div>
+        <div id="box2" style="background-color: bisque;" class="size-[200px] flex items-center justify-center">
+            <p class="text-xl text-black font-semibold text-center">fromTo()</p>
+        </div>
+        <div id="circle" class="size-[200px] rounded-full" style="background-color: blueviolet;"></div>
+        <div class="flex flex-col gap-6 mb-20">
+            <div id="square1" class="size-20 bg-white"></div>
+            <div id="square2" class="size-20 bg-white"></div>
+            <div id="square3" class="size-20 bg-white"></div>
+        </div>
+        <div style="background-color: chartreuse;" class="size-[200px] box flex items-center justify-center">
+            <p class="text-xl text-black font-semibold text-center">set()</p>
+        </div>
+        <div style="background-color: coral;" class="size-[150px] rounded-md addBox mt-6">
+            <p class="text-xl text-black font-semibold text-center">add()</p>
+        </div>
+        <div class="mb-20 flex flex-col mx-auto gap-6">
+            <p class="text-4xl text-white text-center">Text Animation</p>
+            <h2 id="style" class="text-5xl text-white font-bold text-center">Animating Words with Style</h2>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>
