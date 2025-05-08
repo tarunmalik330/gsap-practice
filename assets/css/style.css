@@ -3,5 +3,30 @@
 }
 .end {
   color: #ff0000;
-  
+}
+.box_visibility {
+  visibility: hidden;
+}
+.gradient-text {
+  background: linear-gradient(90deg, rgb(87, 21, 141), rgb(19, 47, 172));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient-text-purple {
+  background: linear-gradient(270deg, #ff7e5f, #feb47b, #6a11cb, #2575fc);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 5s ease infinite;
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

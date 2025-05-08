@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gsap</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <div class="container mx-auto mt-10">
+        <div class="box_visibility size-[200px] rounded-md bg-green-800"></div>
+        <div class="flex gap-6 mt-10">
+            <button class="bg-blue-700 p-3 text-white text-xl rounded-md cursor-pointer" id="play">Play</button>
+            <button class="bg-blue-700 p-3 text-white text-xl rounded-md cursor-pointer" id="resume">Resume</button>
+            <button class="bg-red-800 p-3 text-white text-xl rounded-md cursor-pointer" id="pause">Pause</button>
+            <button class="bg-yellow-800 p-3 text-white text-xl rounded-md cursor-pointer" id="restart">Restart</button>
+            <button class="bg-gray-800 p-3 text-white text-xl rounded-md cursor-pointer" id="reverse">Reverse</button>
+        </div>
+        <div class="flex flex-col gap-6">
+            <h2 class="text-xl mt-12 font-medium
+            ">1. Animate a box from left to right</h2>
+            <div class="box-move size-[150px] bg-black"></div>
+        </div>
+        <div class="flex flex-col gap-6">
+            <h2 class="text-xl mt-12 font-medium
+            ">2. Fade in/out elements on load</h2>
+            <div class="box-fade size-[150px] bg-green-700"></div>
+        </div>
+        <div class="flex flex-col gap-6 my-12">
+            <h2 class="text-xl font-medium
+            ">3. Chain multiple animations using .to()</h2>
+            <div class="flex gap-20">
+                <div class="multiple-animation size-[150px] bg-red-800 rounded-md"></div>
+                <div class="multiple-move size-[150px] bg-orange-800 rounded-md"></div>
+            </div>
+        </div>
+        <div class="flex flex-col gap-6 pt-20">
+            <h2 class="text-xl font-medium
+                    ">4. Create a timeline intro animation</h2>
+        </div>
+    </div>
+    <!-- <div class="size-[150px] rounded-full bg-black circle"></div> -->
+    <section class="min-h-screen flex flex-col items-center justify-center">
+        <h1 class="text-[150px] drop-shadow-lg main-heading font-bold uppercase text-center">Gsap Animation</h1>
+        <div class="bg-[#a68272]/80 w-full mx-auto h-[400px] flex items-center justify-center">
+            <svg width="476" height="476" viewBox="0 0 276 276" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M122.201 125.958L114.788 134.717C114.195 135.424 115.039 136.427 115.838 135.948L118.689 134.26C119.054 134.032 119.51 134.146 119.761 134.488L122.156 137.864C122.498 138.32 123.182 138.32 123.502 137.864L125.897 134.488C126.147 134.146 126.604 134.032 126.991 134.26L129.82 135.948C130.618 136.427 131.462 135.424 130.869 134.717L123.456 125.958C123.137 125.57 122.521 125.57 122.201 125.958Z"
+                    fill="none" stroke="white" stroke-width="1" />
+                <path
+                    d="M168.824 128.421C167.41 126.756 164.832 126.756 163.395 128.421L155.001 138.366L153.268 140.396C152.401 141.422 150.804 141.422 149.938 140.396L126.33 112.523C124.505 110.356 121.152 110.356 119.328 112.523L75.009 164.847C73.8001 166.262 74.8265 168.451 76.6741 168.451H108.653C110.523 168.451 111.527 166.262 110.318 164.847L104.068 157.48C103.498 156.773 102.54 156.522 101.696 156.819L94.2372 159.396C92.1388 160.103 90.4281 157.617 91.8651 155.929L97.2937 149.497L100.441 145.779L121.175 121.304C122.042 120.278 123.616 120.278 124.482 121.304L145.216 145.779L146.972 147.854L148.364 149.497L150.325 151.778L150.485 151.983L153.815 155.906C155.252 157.617 153.541 160.103 151.443 159.373L150.987 159.236L145.832 157.457L145.581 157.366L144.714 157.069L143.962 156.819C143.118 156.522 142.182 156.773 141.589 157.457L135.34 164.847C134.131 166.262 135.157 168.451 137.005 168.451H169.006C170.854 168.451 171.857 166.262 170.671 164.847L169.805 163.844L158.468 150.432L155.115 146.486L154.956 146.304L158.331 142.289L164.444 135.081C165.311 134.032 166.908 134.032 167.774 135.081L182.213 152.143L184.494 154.811L189.056 160.217C190.264 161.631 189.261 163.798 187.391 163.798L181.278 163.821C179.43 163.821 178.426 165.988 179.613 167.402L179.841 167.676C180.251 168.155 180.867 168.451 181.506 168.451H198.02C199.867 168.451 200.871 166.262 199.685 164.847L168.824 128.421Z"
+                    fill="none" stroke="white" stroke-width="3" />
+            </svg>
+        </div>
+
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+    <script>
+        let tween = gsap.to(".box_visibility", {
+            visibility: "visible",
+            x: 300,
+            duration: 4,
+            delay: 1,
+            repeat: -1,
+            yoyo: true,
+            // CALLBACKS
+            // onUpdate: () => {
+            //     console.log(tween.time())
+            // }
+        })
+        let play = document.getElementById("play")
+        let resume = document.getElementById("resume")
+        let pause = document.getElementById("pause")
+        let restart = document.getElementById("restart")
+        let reverse = document.getElementById("reverse")
+        play.addEventListener("click", () => {
+            tween.play()
+        })
+        resume.addEventListener("click", () => {
+            tween.resume()
+        })
+        pause.addEventListener("click", () => {
+            tween.pause()
+        })
+        restart.addEventListener("click", () => {
+            tween.restart()
+        })
+        reverse.addEventListener("click", () => {
+            tween.reverse()
+        })
+
+    </script>
+    <script>
+        // gsap.to(".circle", {
+        //     x: 500,
+        //     delay: 1,
+        //     duration: 1,
+        // }, 2)
+        gsap.to(".box-move", {
+            x: 500,
+            duration: 1,
+            delay: 1,
+            ease: "power2.inOut",
+        })
+        gsap.fromTo(".box-fade", {
+            opacity: 0,
+            scale: 0.5,
+        }, {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            delay: 2,
+            ease: "power2.inOut",
+            yoyo: true,
+            repeat: -1,
+        })
+
+        const tl = gsap.timeline();
+        tl.to([".multiple-animation", ".multiple-move"], {
+            x: 300,
+            duration: 1,
+            delay: 1,
+            ease: "power2.inOut",
+        })
+        tl.to([".multiple-animation", ".multiple-move"], {
+            scale: 1.1,
+            duration: 1,
+            // delay: 1,
+            ease: "power2.inOut",
+        })
+        tl.to([".multiple-animation", ".multiple-move"], {
+            y: 100,
+            duration: 1,
+            // delay: 1,
+            ease: "power2.inOut",
+        })
+        tl.to([".multiple-animation", ".multiple-move"], {
+            rotate: 180,
+            duration: 1,
+            // delay: 1,
+            ease: "power2.inOut",
+        })
+        tl.to([".multiple-animation", ".multiple-move"], {
+            x: 0,
+            duration: 1,
+            // delay: 1,
+            ease: "power2.inOut",
+        })
+        tl.to(".main-heading", {
+            scaleY: 0,
+            scaleX: 0.5,
+            duration: 1,
+            opacity: 0.3,
+            ease: "back.out(1.7)",
+            skewX: 10,
+        })
+        tl.to(".main-heading", {
+            scale: 0.5,
+            rotation: -15,
+            color: "#ff4081",
+            duration: 1,
+            opacity: 0.5,
+            ease: "elastic.out(1, 0.3)"
+        })
+        tl.to(".main-heading", {
+            scale: 1.1,
+            opacity: 1,
+            rotation: 0,
+            duration: 1,
+            color: "#111",
+            ease: "power2.inOut",
+            skew: 20,
+            onComplete: () => {
+                document.querySelector(".main-heading").classList.add("gradient-text")
+            }
+            // textTransform: "Capitalize",
+        })
+        tl.to(".main-heading", {
+            duration: 1,
+            onComplete: () => {
+                document.querySelector(".main-heading").classList.add("gradient-text-purple")
+            }
+        })
+    </script>
+    <script>
+        // use a script tag or an external JS file
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(DrawSVGPlugin);
+            gsap.fromTo(
+                "path",
+                { drawSVG: "0%" },
+                { drawSVG: "100%", duration: 5, ease: "power1.inOut", repeat: -1, yoyo: true }
+            );
+        });
+    </script>
+
+</body>
+
+</html>
