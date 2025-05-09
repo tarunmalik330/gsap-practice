@@ -42,15 +42,17 @@
         });
     </script>
     <script>
-        gsap.registerPlugin(SplitText);
-        // gsap.set("p", { opacity: 1 });
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(SplitText);
+            // gsap.set("p", { opacity: 1 });
 
-        let split = SplitText.create("#sub-heading", { type: "chars" });
-        gsap.from(split.chars, {
-            y: 20,
-            autoAlpha: 0,
-            stagger: 0.05
-        });
+            let split = SplitText.create("#sub-heading", { type: "chars" });
+            gsap.from(split.chars, {
+                y: 20,
+                autoAlpha: 0,
+                stagger: 0.05
+            });
+        })
         // split all elements with the class "split" into words and characters
 
     </script>
