@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,8 +13,9 @@
         <h1 class="text-[100px] font-semibold uppercase text-center">
             Gsap Animation
         </h1>
-        <p id="sub-heading" class="text-center text-black font-medium text-xl pb-10">Lorem ipsum dolor, sit amet
-            consectetur adipisicing elit.</p>
+        <p id="sub-heading" class="text-center text-black font-medium text-xl pb-10">
+            Hello
+        </p>
         <div class="mx-auto flex justify-center items-center">
             <svg width="1223" height="413" viewBox="0 0 1523 713" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -40,6 +41,15 @@
         tl.to("h1", {
             scale: 1,
         });
+        gsap.from("#sub-heading span", {
+            y: 20,
+            opacity: 0,
+            delay: 1,
+            duration: 5,
+            stagger: 0.05,
+            ease: "power2.out"
+
+        });
     </script>
     <!-- <script>
         document.addEventListener("DOMContentLoaded", (event) => {
@@ -56,6 +66,7 @@
         // split all elements with the class "split" into words and characters
 
     </script> -->
+
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
             gsap.registerPlugin(DrawSVGPlugin);
@@ -70,4 +81,4 @@
     </script>
 </body>
 
-</html>
+</html> -->

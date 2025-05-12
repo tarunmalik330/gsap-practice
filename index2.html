@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Scroll Pin & Parallax</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="relative bg-red-700 pt-16 flex flex-col gap-7 min-h-screen">
+        <div id="card-1" class="bg-white w-8/12 mx-auto p-12 flex flex-col h-[650px] z-10 relative">
+            <h2>Card 1</h2>
+        </div>
+
+        <div id="card-2" class="bg-black text-white w-8/12 mx-auto p-12 flex flex-col h-[650px] z-20 relative">
+            <h2 class="parallax-text text-white">Card 2</h2>
+        </div>
+
+        <div id="card-3" class="bg-yellow-500 w-8/12 mx-auto p-12 flex flex-col h-[650px] z-30 relative">
+            <h2 class="text-white">Card 3</h2>
+        </div>
+
+        <div id="card-4" class="bg-orange-500 w-8/12 mx-auto p-12 flex flex-col h-[650px] z-40 relative">
+            <h2 class="text-white">Card 4</h2>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(".box", {
+            scrollTrigger: {
+                trigger: ".box",
+                start: "center center",
+                end: "+=3000",
+                pin: true,
+                snap: 0.5,
+                markers: true
+            },
+            x: 400,
+            rotation: 720,
+            ease: "linear"
+        })
+        gsap.to("#card-1", {
+            scrollTrigger: {
+                trigger: "#card-1",
+                start: "top top",
+                endTrigger: "#card-2",
+                pin: true,
+                pinSpacing: false,
+                markers: false
+            }
+        });
+        gsap.to("#card-2", {
+            scrollTrigger: {
+                trigger: "#card-2",
+                start: "top top",
+                endTrigger: "#card-3",
+                pin: true,
+                pinSpacing: false,
+                markers: false
+            }
+        });
+        gsap.to("#card-3", {
+            scrollTrigger: {
+                trigger: "#card-3",
+                start: "top top",
+                endTrigger: "#card-4",
+                pin: true,
+                pinSpacing: false,
+                markers: false
+            }
+        });
+        gsap.to("#card-4", {
+            scrollTrigger: {
+                trigger: "#card-4",
+                start: "top top",
+                // end: "+=100%",
+                pin: true,
+                pinSpacing: true,
+                markers: false
+            }
+        });
+    </script>
+</body>
+
+</html>
