@@ -8,8 +8,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>scroll trigger</title>
     <style>
-        .bg-ocean {
-            background: url('/assets/images/png/hero-bg.png');
+        @Import url("https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap");
+
+        .bg-hero {
+            background-image: url('/assets/images/png/hero-bg.png');
+        }
+
+        body {
+            font-family: "Tagesschrift", sans-serif;
         }
     </style>
 </head>
@@ -24,7 +30,8 @@
                             class="custom-circle size-[1050px] bg-[#0d76a5]/70 rounded-full opacity-0 scale-50 transition-all duration-500">
                         </div>
                     </div>
-                    <div class="text-black text-center w-full left-0 font-bold p-4 lg:text-5xl text-3xl top-0 absolute">
+                    <div
+                        class="text-green-700 text-center w-full left-0 font-bold p-4 lg:text-5xl text-3xl top-0 absolute">
                         Scroll down &darr;
                     </div>
                     <div
