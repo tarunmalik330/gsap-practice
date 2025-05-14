@@ -11,7 +11,7 @@
         @Import url("https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap");
 
         .bg-hero {
-            background-image: url('/assets/images/png/hero-bg.png');
+            background-image: url('/assets/images/png/hero-bg.png') !important;
         }
 
         body {
@@ -22,7 +22,7 @@
 
 <body>
     <section id="timeline-1" class="timeline bg-black min-h-screen relative overflow-y-clip flex flex-wrap flex-col">
-        <div class="flex items-center h-full w-full bg-ocean bg-cover bg-no-repeat bg-center">
+        <div class="flex items-center h-full w-full bg-hero bg-cover bg-no-repeat bg-center">
             <div class="absolute top-0 left-0 w-full h-full overflow-hidden flex items-center">
                 <div class="max-w-[1040px] mx-auto w-full p-5">
                     <div class="absolute top-[40%] -right-[8%] min-h-screen h-auto">
@@ -59,6 +59,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
+        gsap.set('.text-1', { x: 100 });
+
         gsap.timeline({
             scrollTrigger: {
                 trigger: "#timeline-1",
@@ -86,6 +88,7 @@
                 x: "-20%",
                 ease: "none"
             });
+
     </script>
 
 </body>
