@@ -1,114 +1,86 @@
+</html>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gsap Animation</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>scroll trigger</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap");
-
-        .hero-bg {
-            background-image: url("/assets/images/png/hero-bg.png");
-        }
-
-        body {
-            font-family: "Tagesschrift", sans-serif;
+        .bg-ocean {
+            background: url('/assets/images/png/hero-bg.png');
         }
     </style>
 </head>
 
 <body>
-    <section class="min-h-screen section-pin flex">
-        <div class="hero-bg w-full  min-h-screen bg-center bg-no-repeat bg-cover relative">
-            <h1 class="text-green-700 text-center text-4xl pt-6 z-10 relative">
-                Scroll Down
-            </h1>
+    <section id="timeline-1" class="timeline bg-black min-h-screen relative overflow-y-clip flex flex-wrap flex-col">
+        <div class="flex items-center h-full w-full bg-ocean bg-cover bg-no-repeat bg-center">
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden flex items-center">
+                <div class="max-w-[1040px] mx-auto w-full p-5">
+                    <div class="absolute top-[40%] -right-[8%] min-h-screen h-auto">
+                        <div
+                            class="custom-circle size-[1050px] bg-[#0d76a5]/70 rounded-full opacity-0 scale-50 transition-all duration-500">
+                        </div>
+                    </div>
+                    <div class="text-black text-center w-full left-0 font-bold p-4 lg:text-5xl text-3xl top-0 absolute">
+                        Scroll down &darr;
+                    </div>
+                    <div
+                        class="block max-w-[500px] py-5 ml-auto right-[20%] top-40 absolute pt-[90px] text-1 z-10 opacity-0">
+                        <p class="lg:text-2xl md:text-xl text-base text-white mb-5"> Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit.
+                            Exercitationem laborum quasi consequatur? Debitis ullam corrupti obcaecati nulla vitae!
+                            Sequi ad perspiciatis distinctio repellendus, magni aperiam ea? Rem dolorum voluptates
+                            nihil?</p>
+                        <p class="lg:text-2xl md:text-xl text-base font-bold text-white">Scroll to continue...</p>
+                    </div>
 
-            <div class="w-full h-full flex justify-end items-center pr-16 relative">
-                <svg class="circle-bg absolute -top-[10%] -right-[10%]" xmlns="http://www.w3.org/2000/svg" width="1320"
-                    height="1250" viewBox="0 0 1265 1250">
-                    <circle class="svg-circle" cx="625" cy="625" r="625" fill="#fff" />
-                </svg>
-
-                <p class="circle-text text-black text-right max-w-[550px] text-xl z-10 duration-500">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi,
-                    aliquid nam? Optio error iste quasi consectetur nihil repellat
-                    maxime officia.
-                </p>
+                </div>
             </div>
+            <div class="absolute top-0 left-0 right-0 bottom-0 -z-10 bg-black"></div>
         </div>
-        <div class="bg-white right-section-scroll z-[10] h-full flex justify-center items-center py-12">
-            <p class="max-w-[550px] text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-                repellendus fugit eaque dolore labore obcaecati eveniet perferendis
-                optio dicta ex, voluptatum dolorem nemo laudantium veniam
-                exercitationem odio accusamus totam deleniti eius libero? Natus
-                officia quia, inventore, quam repellat quos aut eos at iste quae ut
-                ratione magni nemo assumenda corrupti?
-            </p>
+        <div class="flex items-center h-full">
+            <p
+                class="text-[#0d76a5]  md:max-w-[300px] max-w-[100px] mx-3 lg:text-2xl md:text-lg text-base font-semibold">
+                Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. </p>
         </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
-        gsap.set(".svg-circle", {
-            opacity: 0,
-            scale: 0.25,
-            transformOrigin: "60% 60%",
-        });
-        gsap.set(".circle-text", {
-            x: 0,
-            opacity: 1,
-        });
-        gsap.set(".right-section-scroll", {
-            x: "-200px", // Adjusted to be fully off-screen
-            opacity: 0, // Hide initially
-        });
-        const tl = gsap.timeline({
+        gsap.timeline({
             scrollTrigger: {
-                trigger: ".section-pin",
+                trigger: "#timeline-1",
                 start: "top top",
-                end: "+=1500",
+                end: "+=3500",
                 scrub: true,
                 pin: true,
-            },
-        });
-        tl.to(".svg-circle", {
-            opacity: 1,
-            duration: 1,
-            scale: 1,
-            ease: "power2.out",
-        });
-
-        tl.from(
-            ".circle-text",
-            {
-                opacity: 0,
-                x: 600,
-                duration: 1,
-                ease: "power2.out",
-            },
-            "-=0.5"
-        );
-        tl.to(
-            ".circle-text",
-            {
+            }
+        })
+            .to('.custom-circle', {
                 opacity: 1,
-                x: -100,
-                duration: 2,
-                ease: "power2.out",
-            },
-            "+=0.5"
-        );
-        tl.to(".right-section-scroll", {
-            x: "0", // Move it into view
-            opacity: 1, // Fade it in
-            duration: 1,
-        });
+                scale: 1.8,
+                x: 0,
+                y: 0,
+                duration: 1.5,
+                ease: "power2.out"
+            })
+            .to('.text-1', {
+                opacity: 1,
+                x: 0,
+                duration: 1.5,
+                ease: "power3.out"
+            }, "2.5")
+            .to('#timeline-1', {
+                x: "-20%",
+                ease: "none"
+            });
     </script>
+
 </body>
 
 </html>
