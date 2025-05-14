@@ -92,6 +92,26 @@
             </div>
         </div>
     </div>
+    <div class="bg-black min-h-screen section-pin p-6 flex flex-col justify-between">
+        <div class="w-full">
+            <p class="text-pink-300 text-animate text-[7vw] uppercase tracking-[-6px] font-bold !leading-[120%]"><span
+                    class="text-white block">so we built</span>
+                web scrolling
+            </p>
+        </div>
+        <div class="w-full mx-auto flex justify-center">
+            <p
+                class="text-pink-300 animate-center-text text-center opacity-0 text-[7vw] uppercase tracking-[6px] font-bold !leading-[120%]">
+                <span class="text-white block">Enter</span> Gsap
+        </div>
+        <div class="w-full">
+            <p
+                class="text-white text-animate text-right text-[7vw] uppercase tracking-[-6px] font-bold !leading-[120%]">
+                As it should
+                be
+            </p>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -231,7 +251,42 @@
         })
 
     </script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const tll = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".section-pin",
+                start: "top top",
+                end: "+=100%",
+                pin: true,
+                scrub: true,
+                markers: true,
+            }
+        });
+        tll.to(".text-animate", {
+            scale: 1.2,
+            duration: 5,
+            scrub: 5,
+        }, 0)
+        tll.from(".animate-center-text", {
+            scale: 0.2,
+            duration: 5,
+            opacity: 0.2,
+            scrub: 5,
+        }, 0)
+        tll.to(".text-animate", {
+            scale: 1.2,
+            duration: 5,
+            scrub: 5,
+        }, 1)
+        tll.from(".animate-center-text", {
+            scale: 1,
+            duration: 5,
+            scrub: 5,
+            opacity: 0.4,
+        }, 1)
 
+    </script>
 </body>
 
 </html>
