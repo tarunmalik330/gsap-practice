@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <section id="timeline-1" class="timeline bg-black min-h-screen relative overflow-y-clip flex flex-wrap flex-col">
+    <section id="timeline" class="timeline bg-black min-h-screen relative overflow-y-clip flex flex-wrap flex-col">
         <div class="flex items-center h-full w-full bg-hero bg-cover bg-no-repeat bg-center">
             <div class="absolute top-0 left-0 w-full h-full overflow-hidden flex items-center">
                 <div class="max-w-[1040px] mx-auto w-full p-5">
@@ -30,7 +30,7 @@
                             class="custom-circle size-[1050px] bg-[#0d76a5]/70 rounded-full opacity-0 scale-50 transition-all duration-500">
                         </div>
                     </div>
-                    <div
+                    <div id="heading"
                         class="text-green-700 text-center w-full left-0 font-bold p-4 lg:text-5xl text-3xl top-0 absolute">
                         Scroll down &darr;
                     </div>
@@ -59,11 +59,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
-        gsap.set('.text-1', { x: 100 });
+        gsap.set('.text-1', { x: 300 });
 
         gsap.timeline({
             scrollTrigger: {
-                trigger: "#timeline-1",
+                trigger: "#timeline",
                 start: "top top",
                 end: "+=3500",
                 scrub: true,
@@ -84,13 +84,36 @@
                 duration: 1.5,
                 ease: "power3.out"
             }, "2.5")
-            .to('#timeline-1', {
+            .to('#timeline', {
                 x: "-20%",
                 ease: "none"
             });
 
     </script>
+    <script>
+        const heading = document.querySelector("#heading");
+        const text = heading.textContent.trim().split("");
+        let newHTML = "";
 
+        text.forEach((char, index) => {
+            if (char === " ") {
+                newHTML += " ";
+            } else {
+                newHTML += `<span class="char inline-block">${char}</span>`;
+            }
+        });
+
+        heading.innerHTML = newHTML;
+
+        gsap.from(".char", {
+            y: 60,
+            opacity: 0,
+            scale: 1.5,
+            stagger: 0.05,
+            duration: 1.2,
+            ease: "back.out(1.7)"
+        });
+    </script>
 </body>
 
 </html>

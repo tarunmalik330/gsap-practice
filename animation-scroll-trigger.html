@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: "TestFoundersGrotesk-Bold";
+            src: url("/assets/fonts/TestFoundersGrotesk-Bold-BF66175e9700615.otf") format("opentype");
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #main h1 {
+            position: absolute;
+            /* top: 50%; */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 22vw;
+            font-weight: 700;
+            font-family: "TestFoundersGrotesk-Bold";
+        }
+
+        #top {
+            width: 100%;
+            height: 50vh;
+            position: absolute;
+            top: 0%;
+            overflow: hidden;
+        }
+
+        #bottom {
+            width: 100%;
+            height: 50vh;
+            position: absolute;
+            bottom: 0%;
+            overflow: hidden;
+        }
+
+        #center {
+            width: 100%;
+            height: 100vh;
+            transform-origin: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #top-h {
+            bottom: 50%;
+            position: absolute;
+        }
+
+        #bottom-h {
+            top: 0 !important;
+            position: absolute;
+        }
+
+        .content {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="bg-black min-h-screen flex items-center justify-center">
+        <div>
+            <p id="heading"
+                class="text-green-700 text-center w-full left-0 font-bold p-4 lg:text-5xl text-3xl top-0 absolute">
+                Scroll down &darr;
+            </p>
+        </div>
+    </section>
+    <div id="main" class="min-h-screen w-full bg-red-300 relative">
+        <div id="top" class="z-10 bg-white">
+            <h1 id="top-h" class="!top-[44%]">GRAVITY</h1>
+        </div>
+        <div id="center" class="bg-[#333] bg-black">
+            <div class="absolute font-bold capitalize content text-[4vw] mt-[100vh] text-white">
+                <h2>please Subscribe</h2>
+            </div>
+        </div>
+        <div id="bottom" class="bg-white">
+            <h1 id="bottom-h" class="top-1/2">GRAVITY</h1>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+        var tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#main",
+                markers: true,
+                start: "50% 50%",
+                end: "100% 50%",
+                scrub: 2,
+                pin: true,
+            },
+        });
+        tl.to(
+            "#top",
+            {
+                top: "-50%",
+            },
+            "a"
+        )
+            .to(
+                "#bottom",
+                {
+                    bottom: "-50%",
+                },
+                "a"
+            )
+            .to(
+                "#top-h",
+                {
+                    top: "80%",
+                },
+                "a"
+            )
+            .to(
+                "#bottom-h",
+                {
+                    bottom: "-80%",
+                },
+                "a"
+            )
+            .to(
+                ".content",
+                {
+                    marginTop: "0%",
+                },
+                "a"
+            );
+    </script>
+</body>
+
+</html>
