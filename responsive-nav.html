@@ -15,6 +15,9 @@
             height: 100%;
             background-color: lightblue !important;
             background-image: url("/assets/images/png/hero-bg.png") !important;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         body {
@@ -29,23 +32,24 @@
 
         button {
             background: linear-gradient(120.8deg, #51068b 2.22%, #cd5ddf 96.08%);
+            transition: background 0.4s ease;
         }
     </style>
 </head>
 
 <body class="overflow-x-hidden">
-    <header id="main" class="pt-4 px-5 2xl:px-0">
+    <header id="main" class="pt-4 px-4">
         <nav id="nav" class="py-3 md:py-6 px-5 bg-white rounded-md">
             <div class="w-full max-w-[1140px] mx-auto flex justify-between items-center">
                 <h2 class="text-2xl font-semibold">logo</h2>
                 <div>
                     <div id="full"
                         class="max-md:fixed z-50 max-md:w-full max-md:h-full bg-white flex max-md:items-center max-md:justify-center max-md:flex-col top-0 -right-full gap-7 transition-all ease-linear duration-300">
-                        <h4 class="text-3xl md:text-xl font-medium">Home</h4>
-                        <h4 class="text-3xl md:text-xl font-medium">About</h4>
-                        <h4 class="text-3xl md:text-xl font-medium">Services</h4>
-                        <h4 class="text-3xl md:text-xl font-medium">Courses</h4>
-                        <h4 class="text-3xl md:text-xl font-medium">Contact us</h4>
+                        <a href="#" class="text-3xl md:text-xl font-bold links">Home</a>
+                        <a href="#" class="text-3xl md:text-xl font-bold links">About</a>
+                        <a href="#" class="text-3xl md:text-xl font-bold links">Services</a>
+                        <a href="#" class="text-3xl md:text-xl font-bold links">Courses</a>
+                        <a href="#" class="text-3xl md:text-xl font-bold links">Contact us</a>
                         <i id="cross"
                             class="ri-close-line absolute top-[5%] right-[10%] font-bold text-2xl bg-white shadow-sm rounded-full size-9 flex items-center justify-center cursor-pointer md:hidden"></i>
                     </div>
@@ -72,13 +76,13 @@
                         adipiscing
                     </p>
                     <button
-                        class="max-md:mx-auto w-max flex mt-8 text-white text-center py-3 md:py-4 px-6 rounded-full">
+                        class="max-md:mx-auto cursor-pointer w-max flex mt-8 text-white text-center py-3 md:py-4 px-6 rounded-full my-button">
                         Get Started
                     </button>
                 </div>
                 <div class="w-10/12 md:w-6/12 pt-8 lg:pt-0">
                     <img id="musicQueen" src="/assets/images/png/music.png" alt="music"
-                        class="max-w-[502px] md:max-w-[602px] object-contain lg:h-[658px] w-full" />
+                        class="max-w-[502px] md:max-w-[602px] object-contain lg:h-[623px] w-full" />
                 </div>
             </div>
         </div>
@@ -277,10 +281,24 @@
         window.onload = media;
         window.onresize = media;
     </script>
-    <!-- cards-hover -->
+    <!-- hover-effects -->
     <script>
         const cards = document.querySelectorAll(".card")
-
+        // navlinks-hover
+        const navlinks = document.querySelectorAll(".links")
+        navlinks.forEach((links) => {
+            links.addEventListener('mouseenter', () => {
+                gsap.to(links, {
+                    color: "#CD5DDF"
+                })
+            })
+            links.addEventListener('mouseleave', () => {
+                gsap.to(links, {
+                    color: "black"
+                })
+            })
+        })
+        // <!-- cards-hover -->
         cards.forEach((card) => {
             const img = card.querySelector('img')
             card.addEventListener('mouseenter', () => {
@@ -314,6 +332,45 @@
             // bgBlur: 60,
             duration: 3
         })
+    </script>
+    <script>
+        const buttons = document.querySelectorAll(".my-button");
+
+        buttons.forEach((btn) => {
+            let gradientTimeline; // to store GSAP timeline
+
+            btn.addEventListener("mouseenter", () => {
+                // Stop any previous timeline
+                if (gradientTimeline) gradientTimeline.kill();
+
+                gradientTimeline = gsap.timeline({ repeat: -1 }); // infinite loop
+
+                gradientTimeline
+                    .to(btn, {
+                        duration: 0.5,
+                        background: "linear-gradient(120.8deg, #e74c3c, #f1c40f)",
+                        ease: "power1.inOut"
+                    })
+                    .to(btn, {
+                        duration: 0.5,
+                        background: "linear-gradient(120.8deg, #2ecc71, #3498db)",
+                        ease: "power1.inOut"
+                    })
+                    .to(btn, {
+                        duration: 0.5,
+                        background: "linear-gradient(120.8deg, #51068b, #cd5ddf)",
+                        ease: "power1.inOut"
+                    });
+            });
+
+            btn.addEventListener("mouseleave", () => {
+                if (gradientTimeline) gradientTimeline.kill();
+                gsap.to(btn, {
+                    duration: 0.4,
+                    background: "linear-gradient(120.8deg, #51068b, #cd5ddf)" // original
+                });
+            });
+        });
     </script>
 </body>
 
