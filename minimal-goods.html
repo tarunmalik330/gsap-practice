@@ -10,6 +10,7 @@
         body {
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         nav {
@@ -67,7 +68,7 @@
         <img id="circle" src="/assets/images/png/bg-circle.png" alt="circle-bg"
             class="rounded-full w-full max-w-[500px] h-[500px] object-cover">
     </section>
-    <section class="min-h-[120vh] bg-white relative z-[5] pt-42 px-5 flex flex-col justify-end items-center">
+    <section class="h-[200px] bg-white !w-full relative z-[5] pt-42 px-5 flex flex-col justify-end items-center">
         <!-- TAG BUBBLES -->
         <div
             class="flex flex-wrap items-center justify-center gap-6 max-w-[1500px] w-full mx-auto px-4 absolute z-10 top-56 left-1/2 -translate-x-1/2">
@@ -108,12 +109,12 @@
                 class="tag pt-2 pb-3 w-max px-9 rounded-full border border-solid text-black text-6xl tracking-[2px] font-bold">
                 More</p>
         </div>
-        <!-- BIG TEXT AT END -->
-        <div id="furnitureSection" class="min-h-screen flex items-end bg-white w-full">
-            <p class="text-black font-bold text-[350px] z-[1] leading-[120%]">Furniture</p>
-        </div>
     </section>
-    <section class="min-h-screen !bg-transparent relative z-[7] px-10">
+    <!-- BIG TEXT AT END -->
+    <div id="furnitureSection" class="min-h-screen flex items-end bg-white !w-full">
+        <p id="furnitureText" class="text-black font-bold text-[350px] z-[1] leading-[120%]">Furniture</p>
+    </div>
+    <section id="section1" class="min-h-screen !bg-transparent relative z-[7] px-10">
         <div class="flex justify-between w-full">
             <img src="/assets/images/png/img-1.png" alt="image" class="max-w-[319px] w-full h-[418px]">
             <div class="translate-y-[70%]">
@@ -127,7 +128,7 @@
             </div>
         </div>
     </section>
-    <div class="min-h-screen !bg-transparent relative z-[7] flex justify-between w-full pt-[220px]">
+    <div id="section2" class="min-h-screen px-10 !bg-transparent relative z-[7] flex justify-between w-full pt-[220px]">
         <img src="/assets/images/png/img-5.png" alt="image" class="max-w-[351px] w-full h-[460px]">
         <div class="translate-y-[70%]">
             <img src="/assets/images/png/img-6.png" alt="image" class="max-w-[260px] w-full h-[341px]">
@@ -139,19 +140,45 @@
             <img src="/assets/images/png/img-8.png" alt="image" class="max-w-[441px] w-full h-[578px]">
         </div>
     </div>
-    <div class="min-h-screen !bg-transparent relative z-[7] flex gap-20 w-full pt-[320px]">
+    <div id="section3" class="min-h-screen !bg-transparent relative z-[7] flex gap-32 w-full pt-[320px] px-10">
         <img src="/assets/images/png/img-9.png" alt="image" class="max-w-[441px] w-full h-[578px]">
         <div class="translate-y-[70%]">
             <img src="/assets/images/png/img-10.png" alt="image" class="max-w-[351px] w-full h-[460px]">
         </div>
-        <!-- <div class="translate-y-[10%]">
-            <img src="/assets/images/png/img-11.png" alt="image" class="max-w-[154px] w-full h-[202px]">
+    </div>
+    <div id="section4"
+        class="min-h-screen translate-y-[20%] !bg-transparent relative z-[7] flex justify-between w-full pt-[320px] px-10">
+        <img src="/assets/images/png/img-11.png" alt="image" class="max-w-[351px] w-full h-[460px]">
+        <div class="translate-y-[60%]">
+            <img src="/assets/images/png/img-12.png" alt="image" class="max-w-[260px] w-full h-[341px]">
+        </div>
+        <div class="translate-y-[10%]">
+            <img src="/assets/images/png/img-13.png" alt="image" class="max-w-[170px] w-full h-[222px]">
         </div>
         <div class="translate-y-[90%]">
-            <img src="/assets/images/png/img-12.png" alt="image" class="max-w-[401px] w-full h-[526px]">
-        </div> -->
+            <img src="/assets/images/png/img-14.png" alt="image" class="max-w-[441px] w-full h-[578px]">
+        </div>
     </div>
-
+    <div id="section5"
+        class="min-h-screen translate-y-[60%] !bg-transparent relative z-[7] flex justify-between w-full pt-[320px] px-10">
+        <img src="/assets/images/png/img-15.png" alt="image" class="max-w-[351px] w-full h-[460px]">
+        <div class="translate-y-[60%]">
+            <img src="/assets/images/png/img-16.png" alt="image" class="max-w-[260px] w-full h-[341px]">
+        </div>
+        <div class="translate-y-[10%]">
+            <img src="/assets/images/png/img-17.png" alt="image" class="max-w-[170px] w-full h-[222px]">
+        </div>
+        <div class="translate-y-[90%]">
+            <img src="/assets/images/png/img-18.png" alt="image" class="max-w-[441px] w-full h-[578px]">
+        </div>
+    </div>
+    <div id="section6"
+        class="min-h-[140vh] translate-y-[90%] !bg-transparent relative z-[7] flex gap-32 w-full pt-[320px] px-10">
+        <img src="/assets/images/png/img-19.png" alt="image" class="max-w-[351px] w-full h-[460px]">
+        <div class="translate-y-[20%]">
+            <img src="/assets/images/png/img-20.png" alt="image" class="max-w-[260px] w-full h-[341px]">
+        </div>
+    </div>
     <!-- GSAP & ScrollTrigger -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
@@ -173,7 +200,7 @@
         ScrollTrigger.create({
             trigger: ".nav-section",
             start: "top top",
-            end: "+=9000",
+            end: "+=11200",
             pin: true,
             pinSpacing: false,
             markers: true
@@ -215,7 +242,7 @@
             scrollTrigger: {
                 trigger: "#CircleParent",
                 start: "top top",
-                end: "+=3000",
+                end: "+=4000",
                 scrub: 5,
                 pin: true,
                 // pinSpacing: false,
@@ -230,33 +257,32 @@
             // ease: "power1.inOut"
         }).to(["#CircleParent", ".nav-bg"], {
             backgroundColor: "#fff",
-            duration: 1,
+            duration: 2,
             ease: "power1.inOut"
         }, "<")
             .to(".nav-text", {
                 color: '#000',
-                duration: 1,
+                duration: 2,
                 ease: "power1.inOut"
             }, "<")
     </script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
-        const tl2 = gsap.timeline({
+
+        // Pin Furniture Section
+        gsap.timeline({
             scrollTrigger: {
                 trigger: "#furnitureSection",
                 start: "top top",
-                end: "+=4000",
+                end: "+=8000",
                 scrub: true,
                 pin: true,
-                pinSpacing: false,
-                markers: true,
+                pinSpacing: false
             }
-        })
-        // tl2.to("#furnitureSection p", {
-        //     y: -200,
-        //     duration: 1
-        // });
+        });
     </script>
+
+
 </body>
 
 </html>
