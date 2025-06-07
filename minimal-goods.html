@@ -173,7 +173,7 @@
         </div>
     </div>
     <div id="section6"
-        class="min-h-[140vh] translate-y-[90%] !bg-transparent relative z-[7] flex gap-32 w-full pt-[320px] px-10">
+        class="min-h-[130vh] translate-y-[60%] !bg-transparent relative z-[7] flex gap-32 w-full pt-[120px] px-10">
         <img src="/assets/images/png/img-19.png" alt="image" class="max-w-[351px] w-full h-[460px]">
         <div class="translate-y-[20%]">
             <img src="/assets/images/png/img-20.png" alt="image" class="max-w-[260px] w-full h-[341px]">
@@ -200,7 +200,7 @@
         ScrollTrigger.create({
             trigger: ".nav-section",
             start: "top top",
-            end: "+=11200",
+            end: "+=11500",
             pin: true,
             pinSpacing: false,
             markers: true
@@ -269,6 +269,9 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
+        const furnitureSection = document.getElementById("furnitureSection");
+        const furnitureText = document.getElementById("furnitureText");
+
         // Pin Furniture Section
         gsap.timeline({
             scrollTrigger: {
@@ -280,7 +283,62 @@
                 pinSpacing: false
             }
         });
+
+        // Function to update styles and text
+        function updateSection(bgColor, textColor, text) {
+            gsap.to(furnitureSection, { backgroundColor: bgColor, duration: 0.7, overwrite: 'auto' });
+            gsap.to(furnitureText, {
+                color: textColor,
+                duration: 0.7,
+                overwrite: 'auto',
+                onComplete: () => furnitureText.textContent = text
+            });
+        }
+
+        // Array of section transitions
+        const transitions = [
+            {
+                trigger: "#section1", from: { bg: "#fff", color: "#000", text: "Furniture" }, to: {
+                    bg: "#000", color: "#fff", text: "Decor"
+                }
+            },
+            {
+                trigger: "#section2", from: { bg: "#000", color: "#fff", text: "Decor" }, to: {
+                    bg: "#fff", color: "#000", text: "Office"
+                }
+            },
+            {
+                trigger: "#section3", from: { bg: "#fff", color: "#000", text: "Office" }, to: {
+                    bg: "#000", color: "#fff", text: "Tech"
+                }
+            }
+        ];
+
+        // Create ScrollTriggers with internal state
+        transitions.forEach(({ trigger, from, to }) => {
+            let isToState = false;
+
+            ScrollTrigger.create({
+                trigger,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+                onUpdate: self => {
+                    if (self.progress >= 0.8 && !isToState) {
+                        updateSection(to.bg, to.color, to.text);
+                        isToState = true;
+                    } else if (self.progress < 0.8 && isToState) {
+                        updateSection(from.bg, from.color, from.text);
+                        isToState = false;
+                    }
+                }
+            });
+        });
     </script>
+
+
+
+
 
 
 </body>
