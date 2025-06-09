@@ -80,7 +80,6 @@
             class="rounded-full w-full max-w-[500px] h-[500px] object-cover" />
     </section>
     <section class="h-[200px] bg-[#e8e2da] !w-full relative z-[5] pt-42 px-5 flex flex-col justify-end items-center">
-        <!-- TAG BUBBLES -->
         <div
             class="flex flex-wrap items-center justify-center gap-6 max-w-[1500px] w-full mx-auto px-4 absolute z-10 top-56 left-1/2 -translate-x-1/2">
             <p
@@ -133,7 +132,6 @@
             </p>
         </div>
     </section>
-    <!-- BIG TEXT AT END -->
     <div id="furnitureSection" class="min-h-screen flex items-end bg-[#e8e2da] !w-full">
         <p id="furnitureText" class="text-[#2a2a27] font-bold text-[350px] z-[1] leading-[120%]">
             Furniture
@@ -229,7 +227,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
-        // Shrinking hero-text on scroll
         gsap.to(".hero-text", {
             scrollTrigger: {
                 trigger: ".hero-section",
@@ -363,7 +360,7 @@
                 currentState.color === textColor &&
                 currentState.text === text
             ) {
-                return; 
+                return;
             }
 
             currentState = { bg: bgColor, color: textColor, text };
