@@ -38,7 +38,7 @@
         <div class="bg-[#2e2a27] px-4 sm:px-5 relative z-10 nav-bg border-b border-[#e8e2da]">
             <div class="relative">
                 <h1 id="navText"
-                    class="hero-text nav-text text-[50px] sm:text-[90px] lg:text-[130px] xl:text-[260px] font-bold leading-[1.2] tracking-[.5px] absolute bottom-0 left-1/2 -translate-x-1/2 text-[#e8e2da]">
+                    class="hero-text nav-text text-[50px] sm:text-[90px] lg:text-[130px] xl:text-[200px] 2xl:text-[260px] font-bold leading-[1.2] tracking-[.5px] absolute bottom-0 left-1/2 -translate-x-1/2 text-[#e8e2da]">
                     MinimalGoods
                 </h1>
             </div>
@@ -250,8 +250,8 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
         ScrollTrigger.matchMedia({
-            "(min-width: 1536px)": () => animateHeroText(0.1, "69%"),
-            "(min-width: 1200px) and (max-width: 1536px)": () =>
+            "(min-width: 1400px)": () => animateHeroText(0.1, "69%"),
+            "(min-width: 1200px) and (max-width: 1401px)": () =>
                 animateHeroText(0.2, "85%"),
             "(min-width: 768px) and (max-width: 1199px)": () =>
                 animateHeroText(0.2, "96%"),
