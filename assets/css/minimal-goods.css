@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+nav {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-section {
+  background-image: url("/assets/images/png/bg-minimal-goods.png");
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+.nav-bg {
+  border-bottom: 1px solid currentColor;
+}
