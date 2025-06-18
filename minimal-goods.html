@@ -386,6 +386,7 @@
             if (window.innerWidth > 768) {
                 gsap.to([furnitureSection, navbar], {
                     backgroundColor: bgColor,
+                    borderColor: textColor,
                     duration: 1.2,
                     overwrite: "auto",
                 });
@@ -398,8 +399,6 @@
             }
             furnitureText.textContent = text;
         }
-
-
         const transitions = [
             {
                 trigger: "#section1",
