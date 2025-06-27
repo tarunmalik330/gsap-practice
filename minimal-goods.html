@@ -35,30 +35,32 @@
             </nav>
         </div>
     </div>
-    <section id="discoverParent" class="flex flex-col bg-[#2e2a27] px-6 cards-section min-h-screen">
-        <div class="bg-[#2e2a27] w-full relative z-[1] card-1 mt-40">
-            <p id="textOne"
-                class="font-bold text-center text-[45px] sm:text-[60px] md:text-[92px] lg:text-[120px] xl:text-[180px] leading-[90%] text-[#e8e2da]">
-                Discover
-            </p>
-        </div>
-        <div class="bg-[#2e2a27] w-full relative z-[2] card-2">
-            <p id="textTwo"
-                class="font-medium text-center text-[45px] sm:text-[60px] md:text-[92px] lg:text-[120px] xl:text-[180px] leading-[90%] text-[#e8e2da]">
-                the best in
-            </p>
-        </div>
-        <div class="bg-[#2e2a27] w-full relative z-[3] card-3">
-            <p id="textThree"
-                class="font-bold text-center text-[45px] sm:text-[60px] md:text-[92px] lg:text-[120px] xl:text-[180px] leading-[90%] text-[#e8e2da]">
-                minimal
-            </p>
-        </div>
-        <div class="bg-[#2e2a27] w-full relative z-[4] card-4 pb-24">
-            <p id="textFour"
-                class="font-bold text-center text-[45px] sm:text-[60px] md:text-[92px] lg:text-[120px] xl:text-[180px] leading-[90%] text-[#e8e2da]">
-                design
-            </p>
+    <section id="discoverParent" class="flex flex-col bg-[#2e2a27] px-6 cards-section min-h-[700px] xl:min-h-screen">
+        <div>
+            <div class="bg-[#2e2a27] w-full relative z-[1] card-1 mt-40">
+                <p id="textOne"
+                    class="font-bold text-center text-[45px] sm:text-[60px] md:text-[92px] lg:text-[120px] xl:text-[180px] leading-[90%] text-[#e8e2da]">
+                    Discover
+                </p>
+            </div>
+            <div class="bg-[#2e2a27] w-full relative z-[2] card-2">
+                <p id="textTwo"
+                    class="font-medium text-center text-[45px] sm:text-[60px] md:text-[92px] lg:text-[120px] xl:text-[180px] leading-[90%] text-[#e8e2da]">
+                    the best in
+                </p>
+            </div>
+            <div class="bg-[#2e2a27] w-full relative z-[3] card-3">
+                <p id="textThree"
+                    class="font-bold text-center text-[45px] sm:text-[60px] md:text-[92px] lg:text-[120px] xl:text-[180px] leading-[90%] text-[#e8e2da]">
+                    minimal
+                </p>
+            </div>
+            <div class="bg-[#2e2a27] w-full relative z-[4] pb-24 pt-3 card-4">
+                <p id="textFour"
+                    class="font-bold text-center text-[45px] sm:text-[60px] md:text-[92px] lg:text-[120px] xl:text-[180px] leading-[90%] text-[#e8e2da]">
+                    design
+                </p>
+            </div>
         </div>
     </section>
     <section id="CircleParent"
@@ -215,19 +217,19 @@
                     class="max-w-[441px] w-full 2xl:max-w-[561px] 2xl:h-[735px] furnitureImage" />
             </div>
         </div>
-        <div id="section6" style="margin-bottom: 300px !important;"
-            class="h-[400px]  sm:h-[500px] md:h-[900px] md:min-h-screen 2xl:min-h-[150vh] xl:translate-y-[60%] !bg-transparent relative z-[7] flex gap-10 lg:gap-32 w-full pt-[120px] px-4 lg:px-10">
+        <div id="section6" style="padding-bottom: 300px !important;"
+            class="h-[300px] sm:h-[500px] md:h-[900px] md:min-h-screen 2xl:min-h-[172vh] xl:translate-y-[60%] !bg-transparent relative z-[7] flex gap-10 lg:gap-32 w-full pt-16 sm:pt-[120px] px-4 lg:px-10">
             <div>
                 <img src="/assets/images/png/img-19.png" alt="image"
                     class="max-w-[351px] w-full 2xl:max-w-[561px] 2xl:h-[735px] furnitureImage" />
             </div>
-            <div class="translate-y-[20%] ">
+            <div class="translate-y-[13%] ">
                 <img src="/assets/images/png/img-20.png" alt="image"
                     class="max-w-[260px] w-full 2xl:max-w-[446px] 2xl:h-[584px] furnitureImage" />
             </div>
         </div>
     </div>
-    <div class="md:h-[910px]"></div>
+    <!-- <div class="md:h-[910px]"></div> -->
     <!-- GSAP & ScrollTrigger -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
@@ -264,34 +266,34 @@
     </script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
-        ScrollTrigger.matchMedia({
-            "(min-width: 1200px)": function () { animatedDiscoverSection(250) },
-            "(min-width: 767px) and (max-width: 1199px)": () => animatedDiscoverSection(200),
-            "(max-width: 768px)": () => animatedDiscoverSection(100)
+        // ScrollTrigger.matchMedia({
+        //     "(min-width: 1200px)": function () { animatedDiscoverSection(250) },
+        //     "(min-width: 767px) and (max-width: 1199px)": () => animatedDiscoverSection(200),
+        //     "(max-width: 768px)": () => animatedDiscoverSection(100)
+        // })
+        // function animatedDiscoverSection(yValue) {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#discoverParent",
+                start: "top top",
+                end: "+=700",
+                scrub: true,
+                markers: true,
+            },
+        });
+        tl.to("#textOne", {
+            y: 250,
         })
-        function animatedDiscoverSection(yValue) {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#discoverParent",
-                    start: "top top",
-                    end: "+=700",
-                    scrub: true,
-                    markers: true,
-                },
-            });
-            tl.to("#textOne", {
-                y: yValue,
+            .to("#textTwo", {
+                y: 250,
             })
-                .to("#textTwo", {
-                    y: yValue,
-                })
-                .to("#textThree", {
-                    y: yValue,
-                })
-                .to("#textFour", {
-                    y: yValue,
-                });
-        }
+            .to("#textThree", {
+                y: 250,
+            })
+            .to("#textFour", {
+                y: 400,
+            });
+        // }
     </script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
@@ -359,7 +361,7 @@
             scrollTrigger: {
                 trigger: "#furnitureSection",
                 start: "top top",
-                end: "+=7200",
+                end: "+=8800",
                 scrub: true,
                 pin: true,
                 pinSpacing: false,
@@ -430,7 +432,6 @@
                 },
             });
         });
-
         ScrollTrigger.create({
             trigger: ".nav-section",
             start: "top top",
@@ -440,7 +441,6 @@
             pinSpacing: false,
             markers: true,
         });
-
     </script>
 
 </body>
